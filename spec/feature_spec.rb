@@ -1,4 +1,5 @@
 require 'transactions'
+require 'printer'
 
 describe 'Transactions' do
 
@@ -42,8 +43,17 @@ describe 'Transactions' do
       expect(transaction.transaction).to include(" date || credit || debit || balance",
         "10/10/2018, 1000, 0, 1000",
         "10/10/2018, 0, 500, 500",
-        "10/10/2018, 0, 500, 0"
-      )
+        "10/10/2018, 0, 500, 0")
     end
   end
+end
+
+describe 'Printer' do
+
+  let(:printer) { Printer.new }
+
+  it 'should initially print only heading values' do
+    expect(Printer.print_statement).to include(" date || credit || debit || balance")
+  end
+
 end
