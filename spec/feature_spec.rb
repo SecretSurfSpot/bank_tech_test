@@ -15,4 +15,12 @@ describe 'Transactions' do
     end
   end
 
+  describe 'make_withdrawl' do
+    it 'deducts the amount given from the balance' do
+      transaction.make_deposit(Time.now.strftime("%Y/%d/%m"), 1000)
+      transaction.make_withdrawl(Time.now.strftime("%Y/%d/%m"), 1000)
+      expect(transaction.balance).to eq(0)
+    end
+  end
+
 end
