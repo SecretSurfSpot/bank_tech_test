@@ -53,7 +53,7 @@ describe 'Printer' do
   let(:printer) { Printer.new }
 
   it 'should initially print only heading values' do
-    expect(Printer.print_statement).to include(" date || credit || debit || balance")
+    expect(printer.print_statement).to include(" date || credit || debit || balance")
   end
 
 end
