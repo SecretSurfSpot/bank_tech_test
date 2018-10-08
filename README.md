@@ -51,4 +51,4 @@ this method will: <br />
 
 ## print_statement
 Passed the transaction_log, <br />
-this method will print out each hash within the transaction_log in the format shown in the **Acceptance Criteria** above.
+this method will print out each line (hash/array element?) within the transaction_log in the format shown in the **Acceptance Criteria** above.
