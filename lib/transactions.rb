@@ -10,4 +10,7 @@ class Transactions
     @balance += amount
   end
 
+  def make_withdrawl(date, amount)
+    @balance -= amount
+  end
 end
