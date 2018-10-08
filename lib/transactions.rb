@@ -14,6 +14,7 @@ class Transactions
 
   def make_withdrawl(date, amount)
     @balance -= amount
+    transaction_log(date, 0, amount, balance)
   end
 
   def transaction_log(date, deposit_amount, debit_amount, balance)

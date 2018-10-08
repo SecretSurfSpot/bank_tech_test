@@ -34,15 +34,16 @@ describe 'Transactions' do
         "10/10/2018, 1000, 0, 2000",
         "10/10/2018, 1000, 0, 3000")
     end
-  end
 
-  it 'is written to by make_withdrawl' do
-    transaction.make_deposit("10/10/2018", 1000)
-    transaction.make_withdrawl("10/10/2018", 500)
-    expect(transaction.transaction).to include(" date || credit || debit || balance",
-      "10/10/2018, 1000, 0, 1000",
-      "10/10/2018, 0, 500, 500"
-    )
+    it 'is written to by #make_withdrawl' do
+      transaction.make_deposit("10/10/2018", 1000)
+      transaction.make_withdrawl("10/10/2018", 500)
+      transaction.make_withdrawl("10/10/2018", 500)
+      expect(transaction.transaction).to include(" date || credit || debit || balance",
+        "10/10/2018, 1000, 0, 1000",
+        "10/10/2018, 0, 500, 500",
+        "10/10/2018, 0, 500, 0"
+      )
+    end
   end
-
 end
