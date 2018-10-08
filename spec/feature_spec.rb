@@ -25,9 +25,14 @@ describe 'Transactions' do
 
   describe 'transaction_log' do
     it 'is written to by #make_deposit' do
-      transaction.make_deposit(Time.now.strftime("%Y/%d/%m"), 1000)
-      transaction.make_deposit(Time.now.strftime("%Y/%d/%m"), 1000)
-      expect(transaction.transaction_log(Time.now.strftime("%Y/%d/%m"), 1000, 0, 2000)).to include(Time.now.strftime("%Y/%d/%m"), 1000, 0, 2000)
+      expect(transaction.transaction_log("10/10/2018", 1000, 0, 2000)).to include(" date || credit || debit || balance", "10/10/2018, 1000, 0, 2000")
+      transaction.make_deposit("10/10/2018", 1000)
+      transaction.make_deposit("10/10/2018", 1000)
+      transaction.make_deposit("10/10/2018", 1000)
+      expect(transaction.transaction).to include(" date || credit || debit || balance",
+        "10/10/2018, 1000, 0, 1000",
+        "10/10/2018, 1000, 0, 2000",
+        "10/10/2018, 1000, 0, 3000")
     end
   end
 

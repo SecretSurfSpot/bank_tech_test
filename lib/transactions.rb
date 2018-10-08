@@ -9,14 +9,14 @@ class Transactions
 
   def make_deposit(date, amount)
     @balance += amount
-    transaction_log(balance)
+    transaction_log(date, amount, 0, balance)
   end
 
   def make_withdrawl(date, amount)
     @balance -= amount
   end
 
-  def transaction_log(balance)
-    @transaction << balance
+  def transaction_log(date, deposit_amount, debit_amount, balance)
+    @transaction << "#{date}, #{deposit_amount}, #{debit_amount}, #{balance}"
   end
 end
