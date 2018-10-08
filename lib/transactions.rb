@@ -5,4 +5,9 @@ class Transactions
   def initialize
     @balance = 0
   end
+
+  def make_deposit(date, amount)
+    @balance += amount
+  end
+
 end
