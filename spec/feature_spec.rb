@@ -23,4 +23,11 @@ describe 'Transactions' do
     end
   end
 
+  describe 'transaction_log' do
+    it 'is written to by #make_deposit' do
+      transaction.make_deposit(Time.now.strftime("%Y/%d/%m"), 1000)
+      expect(transaction.transaction_log(1000)).to include(1000)
+    end
+  end
+
 end
