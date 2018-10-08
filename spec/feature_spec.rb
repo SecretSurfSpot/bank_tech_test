@@ -56,4 +56,14 @@ describe 'Printer' do
     expect(printer.print_statement).to include(" date || credit || debit || balance")
   end
 
+  it 'should print a list of all transactons' do
+    expect(printer.print_statement(" date || credit || debit || balance,
+      10/10/2018, 1000, 0, 1000,
+      10/10/2018, 0, 500, 500,
+      10/10/2018, 0, 500, 0")).to include(" date || credit || debit || balance",
+        "10/10/2018, 1000, 0, 1000",
+        "10/10/2018, 0, 500, 500",
+        "10/10/2018, 0, 500, 0")
+  end
+
 end
