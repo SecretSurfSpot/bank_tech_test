@@ -17,20 +17,38 @@ date || credit || debit || balance <br />
 
 ## Approach
 
-Looking at the above criteria, I initially identified that 3 **methods** will be required, which will fit into 2 (classes):
+Looking at the above criteria, I initially identified that 4 **methods** will be required, which will fit into 2 (classes):
 
- - **make_deposit** (Transactions)
- - **make_withdrawl** (Transactions)
- - **print_statement** (Printer)
+- **make_deposit** (Transactions)
+- **make_withdrawl** (Transactions)
+- **transaction_log** (Transactions)
+- **print_statement** (Printer)
 
- ## make_deposit
- Passed a date and an amount, <br />
- this method will add this transaction to an array of transactions
+## make_deposit
+Passed a date and an amount, <br />
+this method will: <br />
+1) Add the amount to the balance <br />
+2) Call the transaction_log method, passing: <br />
+a) date <br />
+b) amount <br />
+c) null (nothing in this element unless its a withdrawl) <br />
+d) balance
 
- ## make_withdrawl
- Passed a date and an amount, <br />
- this method will add (need to ensure the amount is passed as a negative decimal number) this transaction to an array of transactions
+## make_withdrawl
+Passed a date and an amount, <br />
+this method will: <br />
+1) Deduct the amount from the balance
+2) Call the transaction_log method, passing: <br />
+a) date <br />
+b) null (nothing in this element unless its a deposit) <br />
+c) amount <br />
+d) balance
 
- ## print_statement
- Passed an array of transactions, <br />
- this method will print out the contents of the array of transactions in the format shown in the **Acceptance Criteria** above.
+## transaction_log
+Passed a date, amount(from make_deposit), amount(from make_withdrawl), balance <br />
+this method will: <br />
+1) Add the given transaction to the transaction_log
+
+## print_statement
+Passed the transaction_log, <br />
+this method will print out each hash within the transaction_log in the format shown in the **Acceptance Criteria** above.
