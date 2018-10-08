@@ -33,4 +33,4 @@ Looking at the above criteria, I initially identified that 3 **methods** will be
 
  ## print_statement
  Passed an array of transactions, <br />
- this method will print out the contents in the format shown in the **Acceptance Criteria** above.
+ this method will print out the contents of the array of transactions in the format shown in the **Acceptance Criteria** above.
