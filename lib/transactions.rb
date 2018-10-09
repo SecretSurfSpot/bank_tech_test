@@ -21,12 +21,11 @@ class Transactions
   end
 
   def transaction_log(date, deposit_amount, debit_amount, balance)
-    @transaction << "#{date}, #{deposit_amount}, #{debit_amount}, #{balance}"
+    @transaction << "#{date}, #{'%.2f' % deposit_amount}, #{'%.2f' % debit_amount}, #{'%.2f' % balance}"
   end
 
   def display_statement(printer = Printer)
       printer.print_statement(BANK_STATEMENT_HEADER, transaction)
   end
-
 
 end

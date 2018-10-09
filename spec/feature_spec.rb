@@ -29,17 +29,17 @@ describe 'Transactions' do
     it 'is written to by #make_deposit' do
       multi_deposit # calls method in spec_method_helper.rb
       expect(transaction.transaction).to eq([
-        "#{date}, 1000, 0, 1000",
-        "#{date}, 2000, 0, 3000"])
+        "#{date}, 1000.00, 0.00, 1000.00",
+        "#{date}, 2000.00, 0.00, 3000.00"])
     end
 
     it 'is written to by #make_withdrawl' do
       multi_deposit # calls method in spec_method_helper.rb
       single_withdrawl # calls method in spec_method_helper.rb
       expect(transaction.transaction).to eq([
-        "#{date}, 1000, 0, 1000",
-        "#{date}, 2000, 0, 3000",
-        "#{date}, 0, 500, 2500"])
+        "#{date}, 1000.00, 0.00, 1000.00",
+        "#{date}, 2000.00, 0.00, 3000.00",
+        "#{date}, 0.00, 500.00, 2500.00"])
     end
   end
 
@@ -48,9 +48,9 @@ describe 'Transactions' do
       multi_deposit # calls method in spec_method_helper.rb
       single_withdrawl # calls method in spec_method_helper.rb
       expect(transaction.display_statement).to eq([" date || credit || debit || balance \n",
-        "#{date}, 0, 500, 2500 \n",
-        "#{date}, 2000, 0, 3000 \n",
-        "#{date}, 1000, 0, 1000 \n"])
+        "#{date}, 0.00, 500.00, 2500.00 \n",
+        "#{date}, 2000.00, 0.00, 3000.00 \n",
+        "#{date}, 1000.00, 0.00, 1000.00 \n"])
     end
   end
 
