@@ -51,6 +51,13 @@ Passed a date, amount(from make_deposit), amount(from make_withdrawl), balance <
 this method will: <br />
 1) Add the given transaction to the transaction_log
 
+## display_statement
+This method will: <br />
+1) Call the Printer.print_statement method, passing the BANK_STATEMENT_HEADER and transaction_log
+
 ## print_statement
-Passed the transaction_log, <br />
-this method will print out each line (hash/array element?) within the transaction_log in the format shown in the **Acceptance Criteria** above.
+Passed the BANK_STATEMENT_HEADER and transaction_log, <br />
+this method will: <br />
+1) Add write header values to the statement array
+2) Add the transaction_log to the statement array
+3) Print the statement array in the format shown in the **Acceptance Criteria** above.

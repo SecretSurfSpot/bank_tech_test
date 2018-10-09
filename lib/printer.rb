@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class Printer
 
   def self.print_statement(header, transactions)
-    statement =[]
+    statement = []
     statement.push header
 
     transactions.reverse.each do |line|
       statement.push "#{line} \n"
     end
-    return statement
+    statement
   end
-
 end

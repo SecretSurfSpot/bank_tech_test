@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 require 'transactions'
 require 'printer'
 
-transaction = Transactions.new
-
 def date
-  @date = Time.now.strftime("%Y/%d/%m")
+  @date = Time.now.strftime('%Y/%d/%m')
 end
 
 def single_deposit
