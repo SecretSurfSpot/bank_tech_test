@@ -17,12 +17,14 @@ date || credit || debit || balance <br />
 
 ## Approach
 
-Looking at the above criteria, I initially identified that 4 **methods** will be required, which will fit into 2 (classes):
+Looking at the above criteria, I initially identified that 4 **methods** will be required, which will fit into 2 (classes) <br />
+During coding I realised **_another method_** was necessary:
 
 - **make_deposit** (Transactions)
 - **make_withdrawl** (Transactions)
 - **transaction_log** (Transactions)
 - **print_statement** (Printer)
+- **_display_statement_** (Transactions)
 
 ## make_deposit
 Passed a date and an amount, <br />
