@@ -1,9 +1,13 @@
 class Printer
 
-  def self.print_statement(transactions)
-    transactions.each do |line|
-      puts "#{line}"
+  def self.print_statement(header, transactions)
+    statement =[]
+    statement.push header
+
+    transactions.reverse.each do |line|
+      statement.push "#{line} \n"
     end
+    return statement
   end
 
 end

@@ -28,18 +28,18 @@ describe 'Transactions' do
   describe 'transaction_log' do
     it 'is written to by #make_deposit' do
       multi_deposit # calls method in spec_method_helper.rb
-      expect(transaction.transaction).to include(" date || credit || debit || balance",
+      expect(transaction.transaction).to eq([
         "#{date}, 1000, 0, 1000",
-        "#{date}, 2000, 0, 3000")
+        "#{date}, 2000, 0, 3000"])
     end
 
     it 'is written to by #make_withdrawl' do
       multi_deposit # calls method in spec_method_helper.rb
       single_withdrawl # calls method in spec_method_helper.rb
-      expect(transaction.transaction).to include(" date || credit || debit || balance",
+      expect(transaction.transaction).to eq([
         "#{date}, 1000, 0, 1000",
         "#{date}, 2000, 0, 3000",
-        "#{date}, 0, 500, 2500")
+        "#{date}, 0, 500, 2500"])
     end
   end
 
@@ -47,10 +47,10 @@ describe 'Transactions' do
     it 'prints a statement (contents of transaction_log)' do
       multi_deposit # calls method in spec_method_helper.rb
       single_withdrawl # calls method in spec_method_helper.rb
-      expect(transaction.display_statement).to include(" date || credit || debit || balance",
-        "#{date}, 1000, 0, 1000",
-        "#{date}, 2000, 0, 3000",
-        "#{date}, 0, 500, 2500")
+      expect(transaction.display_statement).to eq([" date || credit || debit || balance \n",
+        "#{date}, 0, 500, 2500 \n",
+        "#{date}, 2000, 0, 3000 \n",
+        "#{date}, 1000, 0, 1000 \n"])
     end
   end
 
