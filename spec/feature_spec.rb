@@ -26,44 +26,34 @@ describe 'Transactions' do
 
   describe 'transaction_log' do
     it 'is written to by #make_deposit' do
-      expect(transaction.transaction_log("10/10/2018", 1000, 0, 2000)).to include(" date || credit || debit || balance", "10/10/2018, 1000, 0, 2000")
-      transaction.make_deposit("10/10/2018", 1000)
-      transaction.make_deposit("10/10/2018", 1000)
-      transaction.make_deposit("10/10/2018", 1000)
+      transaction.make_deposit("10/01/2012", 1000)
+      transaction.make_deposit("13/01/2012", 2000)
       expect(transaction.transaction).to include(" date || credit || debit || balance",
-        "10/10/2018, 1000, 0, 1000",
-        "10/10/2018, 1000, 0, 2000",
-        "10/10/2018, 1000, 0, 3000")
+        "10/01/2012, 1000, 0, 1000",
+        "13/01/2012, 2000, 0, 3000")
     end
 
     it 'is written to by #make_withdrawl' do
-      transaction.make_deposit("10/10/2018", 1000)
-      transaction.make_withdrawl("10/10/2018", 500)
-      transaction.make_withdrawl("10/10/2018", 500)
+      transaction.make_deposit("10/01/2012", 1000)
+      transaction.make_deposit("13/01/2012", 2000)
+      transaction.make_withdrawl("14/01/2012", 500)
       expect(transaction.transaction).to include(" date || credit || debit || balance",
-        "10/10/2018, 1000, 0, 1000",
-        "10/10/2018, 0, 500, 500",
-        "10/10/2018, 0, 500, 0")
+        "10/01/2012, 1000, 0, 1000",
+        "13/01/2012, 2000, 0, 3000",
+        "14/01/2012, 0, 500, 2500")
     end
   end
-end
 
-describe 'Printer' do
-
-  let(:printer) { Printer.new }
-
-  it 'should initially print only heading values' do
-    expect(printer.print_statement).to include(" date || credit || debit || balance")
-  end
-
-  it 'should print a list of all transactons' do
-    expect(printer.print_statement(" date || credit || debit || balance,
-      10/10/2018, 1000, 0, 1000,
-      10/10/2018, 0, 500, 500,
-      10/10/2018, 0, 500, 0")).to include(" date || credit || debit || balance",
-        "10/10/2018, 1000, 0, 1000",
-        "10/10/2018, 0, 500, 500",
-        "10/10/2018, 0, 500, 0")
+  describe 'display_statement' do
+    it 'prints a statement (contents of transaction_log)' do
+      transaction.make_deposit("10/01/2012", 1000)
+      transaction.make_deposit("13/01/2012", 2000)
+      transaction.make_withdrawl("14/01/2012", 500)
+      expect(transaction.display_statement).to include(" date || credit || debit || balance",
+        "10/01/2012, 1000, 0, 1000",
+        "13/01/2012, 2000, 0, 3000",
+        "14/01/2012, 0, 500, 2500")
+    end
   end
 
 end

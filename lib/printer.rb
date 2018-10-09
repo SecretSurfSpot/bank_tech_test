@@ -1,7 +1,9 @@
 class Printer
 
-  def print_statement
-    return " date || credit || debit || balance"
+  def self.print_statement(transactions)
+    transactions.each do |line|
+      puts "#{line}"
+    end
   end
 
 end

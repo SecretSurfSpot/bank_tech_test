@@ -1,3 +1,4 @@
+require_relative 'printer'
 class Transactions
 
   attr_reader :balance, :transaction
@@ -20,4 +21,10 @@ class Transactions
   def transaction_log(date, deposit_amount, debit_amount, balance)
     @transaction << "#{date}, #{deposit_amount}, #{debit_amount}, #{balance}"
   end
+
+  def display_statement(printer = Printer)
+      printer.print_statement(transaction)
+  end
+
+
 end
