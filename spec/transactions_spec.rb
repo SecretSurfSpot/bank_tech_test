@@ -56,10 +56,19 @@ describe Transactions do
     end
   end
 
-  # expect(transaction.display_statement).to eq(
-  #   [" date || credit || debit || balance \n",
-  #   "#{date} || 0.00 || 500.00 || 2500.00 \n",
-  #   "#{date} || 2000.00 || 0.00 || 3000.00 \n",
-  #   "#{date} || 1000.00 || 0.00 || 1000.00 \n"])
+  context 'display_statement' do
+    before(:each) do
+      transaction.make_deposit(date, 1000)
+      transaction.make_deposit(date, 2000)
+      transaction.make_withdrawal(date, 500)
+    end
+    it 'should result in the statement being printed' do
+      expect(transaction.display_statement).to eq(
+        ["date || credit || debit || balance",
+        "#{date} || 0.00 || 500.00 || 2500.00",
+        "#{date} || 2000.00 || 0.00 || 3000.00",
+        "#{date} || 1000.00 || 0.00 || 1000.00"])
+    end
+  end
 
 end

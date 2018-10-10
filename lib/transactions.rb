@@ -3,8 +3,6 @@
 require_relative 'printer'
 class Transactions
 
-  BANK_STATEMENT_HEADER = " date || credit || debit || balance \n"
-
   attr_reader :balance, :transaction
 
   def initialize
@@ -32,6 +30,6 @@ class Transactions
   end
 
   def display_statement(printer = Printer)
-    printer.print_statement(BANK_STATEMENT_HEADER, transaction)
+    printer.print_statement(transaction)
   end
 end
