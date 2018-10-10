@@ -38,15 +38,15 @@ describe 'Transactions' do
     end
   end
 
-  describe 'display_statement' do
-    it 'prints a statement (contents of transaction_log)' do
-      multi_deposit # calls method in spec_method_helper.rb
-      single_withdrawal # calls method in spec_method_helper.rb
-      expect(transaction.display_statement).to eq(
-        [" date || credit || debit || balance \n",
-        "#{date} || 0.00 || 500.00 || 2500.00 \n",
-        "#{date} || 2000.00 || 0.00 || 3000.00 \n",
-        "#{date} || 1000.00 || 0.00 || 1000.00 \n"])
-    end
-  end
+  # describe 'display_statement' do
+  #   it 'prints a statement (contents of transaction_log)' do
+  #     multi_deposit # calls method in spec_method_helper.rb
+  #     single_withdrawal # calls method in spec_method_helper.rb
+  #     expect(transaction.display_statement).to eq(
+  #       [" date || credit || debit || balance \n",
+  #       "#{date} || 0.00 || 500.00 || 2500.00 \n",
+  #       "#{date} || 2000.00 || 0.00 || 3000.00 \n",
+  #       "#{date} || 1000.00 || 0.00 || 1000.00 \n"])
+  #   end
+  # end
 end
