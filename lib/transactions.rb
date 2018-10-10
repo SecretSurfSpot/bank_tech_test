@@ -13,6 +13,8 @@ class Transactions
   end
 
   def make_deposit(date, amount)
+    raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
+    raise ArgumentError, 'Error: number positive' unless amount.positive?
     @balance += amount
     transaction_log(date, amount, 0, balance)
   end
