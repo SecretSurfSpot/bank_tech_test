@@ -28,8 +28,7 @@ class Transactions
   end
 
   def transaction_log(date, deposit_amount, debit_amount, balance)
-  #  @transaction << { date: date, deposit: deposit_amount, debit: debit_amount, balance: balance }
-    @transaction << "#{date} || #{'%.2f' % deposit_amount} || #{'%.2f' % debit_amount} || #{'%.2f' % balance}"
+    @transaction << { date: date, deposit: deposit_amount, debit: debit_amount, balance: balance }
   end
 
   def display_statement(printer = Printer)
