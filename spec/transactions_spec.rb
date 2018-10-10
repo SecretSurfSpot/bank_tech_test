@@ -45,6 +45,11 @@ describe Transactions do
 
   context 'transaction_log' do
     it 'should write all deposits & withdrawals to the transaction_log' do
+      expect(transaction.display_statement).to eq(
+        [" date || credit || debit || balance \n",
+        "#{date} || 0.00 || 500.00 || 2500.00 \n",
+        "#{date} || 2000.00 || 0.00 || 3000.00 \n",
+        "#{date} || 1000.00 || 0.00 || 1000.00 \n"])
 
     end
   end
