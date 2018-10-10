@@ -18,9 +18,9 @@ describe 'Transactions' do
     end
   end
 
-  describe 'make_withdrawl' do
+  describe 'make_withdrawal' do
     it 'deducts the amount given from the balance' do
-      single_deposit_single_withdrawl # calls method in spec_method_helper.rb
+      single_deposit_single_withdrawal # calls method in spec_method_helper.rb
       expect(transaction.balance).to eq(0)
     end
   end
@@ -31,9 +31,9 @@ describe 'Transactions' do
       expect(transaction.balance).to eq(3000)
     end
 
-    it 'is written to by #make_withdrawl' do
+    it 'is written to by #make_withdrawal' do
       multi_deposit # calls method in spec_method_helper.rb
-      single_withdrawl # calls method in spec_method_helper.rb
+      single_withdrawal # calls method in spec_method_helper.rb
       expect(transaction.balance).to eq(2500)
     end
   end
@@ -41,7 +41,7 @@ describe 'Transactions' do
   describe 'display_statement' do
     it 'prints a statement (contents of transaction_log)' do
       multi_deposit # calls method in spec_method_helper.rb
-      single_withdrawl # calls method in spec_method_helper.rb
+      single_withdrawal # calls method in spec_method_helper.rb
       expect(transaction.display_statement).to eq(
         [" date || credit || debit || balance \n",
         "#{date} || 0.00 || 500.00 || 2500.00 \n",

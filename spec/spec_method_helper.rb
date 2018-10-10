@@ -11,13 +11,13 @@ def single_deposit
   transaction.make_deposit(date, 1000)
 end
 
-def single_withdrawl
-  transaction.make_withdrawl(date, 500)
+def single_withdrawal
+  transaction.make_withdrawal(date, 500)
 end
 
-def single_deposit_single_withdrawl
+def single_deposit_single_withdrawal
   transaction.make_deposit(date, 1000)
-  transaction.make_withdrawl(date, 1000)
+  transaction.make_withdrawal(date, 1000)
 end
 
 def multi_deposit

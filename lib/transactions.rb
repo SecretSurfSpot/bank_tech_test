@@ -19,7 +19,10 @@ class Transactions
     transaction_log(date, amount, 0, balance)
   end
 
-  def make_withdrawl(date, amount)
+  def make_withdrawal(date, amount)
+    raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
+    raise ArgumentError, 'Error: number positive' unless amount.positive?
+    raise ArgumentError, 'Error: you have insufficient funds, please try a smaller amount' unless amount <= @balance
     @balance -= amount
     transaction_log(date, 0, amount, balance)
   end
