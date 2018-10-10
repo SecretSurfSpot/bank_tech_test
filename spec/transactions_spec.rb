@@ -1,4 +1,5 @@
 require 'transactions'
+require 'spec_method_helper'
 
 describe Transactions do
   let(:transaction) { Transactions.new }
@@ -45,29 +46,28 @@ describe Transactions do
 
   context 'transaction_log' do
     it 'should write all deposits & withdrawals to the transaction_log' do
-      transaction.transaction_log(date, 1000, 0, 1000)
-      transaction.transaction_log(date, 2000, 0, 3000)
-      transaction.transaction_log(date, 0, 500, 2500)
+      transaction.transaction_log(date, 1000, nil, 1000)
+      transaction.transaction_log(date, 2000, nil, 3000)
+      transaction.transaction_log(date, nil, 500, 2500)
       expect(transaction.transaction).to eq(
-        [{:date=>date,:debit=>0, :deposit=>1000, :balance=>1000},
-        {:date=>date,:debit=>0, :deposit=>2000, :balance=>3000},
-        {:date=>date,:debit=>500, :deposit=>0, :balance=>2500}]
+        [{:date=>date,:debit=>nil, :deposit=>1000, :balance=>1000},
+        {:date=>date,:debit=>nil, :deposit=>2000, :balance=>3000},
+        {:date=>date,:debit=>500, :deposit=>nil, :balance=>2500}]
       )
     end
   end
 
   context 'display_statement' do
     before(:each) do
-      transaction.make_deposit(date, 1000)
-      transaction.make_deposit(date, 2000)
-      transaction.make_withdrawal(date, 500)
+      multi_deposit # calls method in spec_method_helper.rb
+      single_withdrawal # calls method in spec_method_helper.rb
     end
     it 'should result in the statement being printed' do
       expect(transaction.display_statement).to eq(
         ["date || credit || debit || balance",
-        "#{date} || 0.00 || 500.00 || 2500.00",
-        "#{date} || 2000.00 || 0.00 || 3000.00",
-        "#{date} || 1000.00 || 0.00 || 1000.00"])
+        "#{date} || || 500.00 || 2500.00",
+        "#{date} || 2000.00 || || 3000.00",
+        "#{date} || 1000.00 || || 1000.00"])
     end
   end
 

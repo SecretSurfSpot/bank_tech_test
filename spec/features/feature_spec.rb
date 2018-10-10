@@ -44,9 +44,9 @@ describe 'Transactions' do
       single_withdrawal # calls method in spec_method_helper.rb
       expect(transaction.display_statement).to eq(
         ["date || credit || debit || balance",
-        "#{date} || 0.00 || 500.00 || 2500.00",
-        "#{date} || 2000.00 || 0.00 || 3000.00",
-        "#{date} || 1000.00 || 0.00 || 1000.00"])
+        "#{date} || || 500.00 || 2500.00",
+        "#{date} || 2000.00 || || 3000.00",
+        "#{date} || 1000.00 || || 1000.00"])
     end
   end
 end
