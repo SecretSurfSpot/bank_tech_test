@@ -34,13 +34,13 @@ class Transactions
   end
 
   private
-  
+
   def verify_numeric(amount)
     raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
   end
 
   def verify_positive(amount)
-    raise ArgumentError, 'Error: number positive' unless amount.positive?
+    raise ArgumentError, 'Error: number must be positive' unless amount.positive?
   end
 
   def verify_sufficient_funds(amount)
