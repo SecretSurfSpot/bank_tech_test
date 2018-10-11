@@ -57,7 +57,7 @@ The model below illustrates the high-level structure of the application.
 Two classes:
 
 1. **Transactions:** Takes inputs for both deposit and withdrawal amounts, keeps track of the balance and also maintains the transaction log
-2. **Printer:** Takes the transaction log as in input (from the Transactions class), formats it, then prints output as in basic bank statement format
+2. **Printer:** Takes the transaction log as in input (from the Transactions class), formats it, then prints output in basic bank statement format
 
 ```
     User
