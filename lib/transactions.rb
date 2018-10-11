@@ -2,7 +2,6 @@
 
 require_relative 'printer'
 class Transactions
-
   attr_reader :balance, :transaction
 
   def initialize
@@ -20,13 +19,14 @@ class Transactions
   def make_withdrawal(date, amount)
     raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
     raise ArgumentError, 'Error: number positive' unless amount.positive?
-    raise ArgumentError, 'Error: you have insufficient funds, please try a smaller amount' unless amount <= @balance
+    raise ArgumentError, 'Error: insufficient funds - try a smaller amount' unless amount <= @balance
     @balance -= amount
     transaction_log(date, nil, amount, balance)
   end
 
   def transaction_log(date, deposit_amount, debit_amount, balance)
-    @transaction << { date: date, deposit: deposit_amount, debit: debit_amount, balance: balance }
+    @transaction << { date: date, deposit: deposit_amount,
+                      debit: debit_amount, balance: balance }
   end
 
   def display_statement(printer = Printer.new)

@@ -43,10 +43,11 @@ describe 'Transactions' do
       multi_deposit # calls method in spec_method_helper.rb
       single_withdrawal # calls method in spec_method_helper.rb
       expect(transaction.display_statement).to eq(
-        ["date || credit || debit || balance",
-        "#{date} || || 500.00 || 2500.00",
-        "#{date} || 2000.00 || || 3000.00",
-        "#{date} || 1000.00 || || 1000.00"])
+        ['date || credit || debit || balance',
+         "#{date} || || 500.00 || 2500.00",
+         "#{date} || 2000.00 || || 3000.00",
+         "#{date} || 1000.00 || || 1000.00"]
+      )
     end
   end
 end

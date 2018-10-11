@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'printer'
 
 describe Printer do
   let(:printer) { Printer.new }
   let(:date) { Time.now.strftime('%Y/%d/%m') }
   let(:transactions_1) { [date: date, deposit: 1000, debit: nil, balance: 1000] }
-  let(:transactions_2) { [{date: date, deposit: 1000, debit: nil, balance: 1000 }, {date: date, deposit: 2000, debit: nil, balance: 3000}, {date: date, deposit: nil, debit: 500, balance: 2500}] }
+  let(:transactions_2) { [{ date: date, deposit: 1000, debit: nil, balance: 1000 }, { date: date, deposit: 2000, debit: nil, balance: 3000 }, { date: date, deposit: nil, debit: 500, balance: 2500 }] }
 
   context 'printer_statement' do
     it 'should print a header if no transactions have been made' do
@@ -23,6 +25,4 @@ describe Printer do
                                                                     "#{date} || 1000.00 || || 1000.00\n").to_stdout
     end
   end
-
-
 end
