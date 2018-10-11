@@ -2,11 +2,11 @@
 
 require_relative 'printer'
 class Transactions
-  attr_reader :balance, :transaction
+  attr_reader :balance, :transactions
 
   def initialize
     @balance = 0
-    @transaction = []
+    @transactions = []
   end
 
   def make_deposit(date, amount)
@@ -25,11 +25,11 @@ class Transactions
   end
 
   def transaction_log(date, deposit_amount, debit_amount, balance)
-    @transaction << { date: date, deposit: deposit_amount,
+    @transactions << { date: date, deposit: deposit_amount,
                       debit: debit_amount, balance: balance }
   end
 
   def display_statement(printer = Printer.new)
-    printer.print_statement(transaction)
+    printer.print_statement(transactions)
   end
 end

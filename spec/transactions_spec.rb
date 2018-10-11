@@ -51,7 +51,7 @@ describe Transactions do
       transaction.transaction_log(date, 1000, nil, 1000)
       transaction.transaction_log(date, 2000, nil, 3000)
       transaction.transaction_log(date, nil, 500, 2500)
-      expect(transaction.transaction).to eq(
+      expect(transaction.transactions).to eq(
         [{ date: date, debit: nil, deposit: 1000, balance: 1000 },
          { date: date, debit: nil, deposit: 2000, balance: 3000 },
          { date: date, debit: 500, deposit: nil, balance: 2500 }]

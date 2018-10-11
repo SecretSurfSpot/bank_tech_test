@@ -16,15 +16,11 @@ class Printer
 
   def format_statement(transactions, statement)
     transactions.reverse.each do |line|
-      line[:deposit].nil? ?
-        (statement.push "#{line[:date]} || "\
-        '||'\
-        " #{decimalize_number(line[:debit])} || "\
-        "#{decimalize_number(line[:balance])}") :
-        (statement.push "#{line[:date]} || "\
-        "#{decimalize_number(line[:deposit])} || "\
-        '||'\
-        " #{decimalize_number(line[:balance])}")
+      if line[:deposit].nil?
+        (statement.push "#{line[:date]} || || #{decimalize_number(line[:debit])} || #{decimalize_number(line[:balance])}")
+      else
+        (statement.push "#{line[:date]} || #{decimalize_number(line[:deposit])} || || #{decimalize_number(line[:balance])}")
+      end
     end
   end
 
@@ -33,6 +29,6 @@ class Printer
   end
 
   def decimalize_number(number)
-    '%.2f' % number.to_f unless number.nil?
+    format('%.2f', number) unless number.nil?
   end
 end
