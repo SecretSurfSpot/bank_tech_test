@@ -70,7 +70,7 @@ Two classes:
        |
        |                                   
 ╔════════════╗     
-║            ║ public methods:  make_deposit, make_withdrawal, transaction_log,
+║            ║ public methods:  make_deposit, make_withdrawal, transaction_log &
 ║Transactions║                  display_statement
 ║  (class)   ║ private methods: verify_numeric, verify_positive &            
 ╚════════════╝                  verify_sufficient_funds    
