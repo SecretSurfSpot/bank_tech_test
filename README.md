@@ -49,3 +49,38 @@ To use the application, open a Ruby REPL from the project root and type the foll
 The above commands result in the output shown in the screenshot below:
 
 ![REPL screenshot](https://github.com/SecretSurfSpot/bank_tech_test/blob/master/images/Screen%20Shot%202018-10-11%20at%2012.52.24.png)
+
+## Domain Model
+
+The model below illustrates the high-level structure of the application.
+
+Two classes:
+
+1. Transactions: Takes inputs for both deposit and withdrawal amounts, keeps track of the balance and also maintains the transaction log
+2. Printer: Takes the transaction log as in input (from the Transactions class), formats it, then prints output as in basic bank statement format
+
+```
+    User
+╔════════════╗  
+║            ║ Interacts with application
+║  Terminal  ║ via REPL, e.g. IRB     
+║            ║
+╚════════════╝
+       |
+       |
+       |                                   
+╔════════════╗     
+║            ║ public methods:  make_deposit, make_withdrawal, transaction_log,
+║Transactions║                  display_statement
+║  (class)   ║ private methods: verify_numeric, verify_positive &            
+╚════════════╝                  verify_sufficient_funds    
+       |
+       |
+       V                             
+╔════════════╗
+║            ║ public methods:  print_statement
+║   Printer  ║                  
+║  (Class)   ║ private methods: format_statement, add_header & decimalize_number
+╚════════════╝            
+
+```
