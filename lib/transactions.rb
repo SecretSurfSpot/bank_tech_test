@@ -10,16 +10,16 @@ class Transactions
   end
 
   def make_deposit(date, amount)
-    raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
-    raise ArgumentError, 'Error: number positive' unless amount.positive?
+    verify_numeric(amount)
+    verify_positive(amount)
     @balance += amount
     transaction_log(date, amount, nil, balance)
   end
 
   def make_withdrawal(date, amount)
-    raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
-    raise ArgumentError, 'Error: number positive' unless amount.positive?
-    raise ArgumentError, 'Error: insufficient funds - try a smaller amount' unless amount <= @balance
+    verify_numeric(amount)
+    verify_positive(amount)
+    verify_sufficient_funds(amount)
     @balance -= amount
     transaction_log(date, nil, amount, balance)
   end
@@ -31,5 +31,19 @@ class Transactions
 
   def display_statement(printer = Printer.new)
     printer.print_statement(transactions)
+  end
+
+  private
+  
+  def verify_numeric(amount)
+    raise ArgumentError, 'Error: amount must be a number' unless amount.is_a? Integer
+  end
+
+  def verify_positive(amount)
+    raise ArgumentError, 'Error: number positive' unless amount.positive?
+  end
+
+  def verify_sufficient_funds(amount)
+    raise ArgumentError, 'Error: insufficient funds - try a smaller amount' unless amount <= @balance
   end
 end

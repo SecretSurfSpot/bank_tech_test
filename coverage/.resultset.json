@@ -91,6 +91,20 @@
         1,
         2,
         null,
+        null,
+        1,
+        null,
+        1,
+        25,
+        null,
+        null,
+        1,
+        24,
+        null,
+        null,
+        1,
+        6,
+        null,
         null
       ],
       "/Users/andrewgibbs/Projects/tech_tests/bank_tech_test/lib/printer.rb": [
@@ -266,6 +280,6 @@
         null
       ]
     },
-    "timestamp": 1539255327
+    "timestamp": 1539263427
   }
 }
