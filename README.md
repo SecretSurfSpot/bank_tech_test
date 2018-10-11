@@ -1,6 +1,13 @@
 # Bank Tech Test
 
-Makers week 10 individual tech test - Banking Application, created with Ruby and RSpec.
+Makers week 10 individual tech test - Banking Application, created with Ruby and RSpec, using TDD and OO.
+
+## Requirements
+
+- You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+- Deposits, withdrawal.
+- Account statement (date, amount, balance) printing.
+- Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
 ## Acceptance Criteria
 
@@ -15,49 +22,28 @@ date || credit || debit || balance <br />
 13/01/2012 || 2000.00 || || 3000.00 <br />
 10/01/2012 || 1000.00 || || 1000.00 <br />
 
-## Approach
+## The Application (bank_tech_test)
 
-Looking at the above criteria, I initially identified that 4 **methods** will be required, which will fit into 2 (classes) <br />
-During coding I realised **_another method_** was necessary:
+The project can be found here:
+https://github.com/SecretSurfSpot/bank_tech_test
 
-- **make_deposit** (Transactions)
-- **make_withdrawl** (Transactions)
-- **transaction_log** (Transactions)
-- **print_statement** (Printer)
-- **_display_statement_** (Transactions)
+### Installation
+- Perquisites: Ruby 2.5.1 installed on your machine
+- Clone the repo to your local machine
+- Run 'bundle install'
 
-## make_deposit
-Passed a date and an amount, <br />
-this method will: <br />
-1) Add the amount to the balance <br />
-2) Call the transaction_log method, passing: <br />
-a) date <br />
-b) amount <br />
-c) null (nothing in this element unless its a withdrawl) <br />
-d) balance
+### Testing
+To test the application:
+- Open Terminal (or a similar command line interface)
+- Run 'rspec' from the project root
 
-## make_withdrawl
-Passed a date and an amount, <br />
-this method will: <br />
-1) Deduct the amount from the balance
-2) Call the transaction_log method, passing: <br />
-a) date <br />
-b) null (nothing in this element unless its a deposit) <br />
-c) amount <br />
-d) balance
+### Use
+To use the application, open a Ruby REPL from the project root and type the following commands:
+- require './lib/transactions'
+- transaction = Transactions.new *creates a new Transaction object*
+- transaction.make_deposit("08/10/2018", 1000) *deposits £1000, dated 08/10/2018*
+- transaction.make_deposit("10/10/2018", 2000) *deposits £2000, dated 20/10/2018*
+- transaction.make_withdrawal("11/10/2018", 1000) *withdraws £1000, dated 11/10/2018*
+- transaction.display_statement *prints a bank statement, as per the format shown in the Acceptance Criteria section*
 
-## transaction_log
-Passed a date, amount(from make_deposit), amount(from make_withdrawl), balance <br />
-this method will: <br />
-1) Add the given transaction to the transaction_log
-
-## display_statement
-This method will: <br />
-1) Call the Printer.print_statement method, passing the BANK_STATEMENT_HEADER and transaction_log
-
-## print_statement
-Passed the BANK_STATEMENT_HEADER and transaction_log, <br />
-this method will: <br />
-1) Add write header values to the statement array
-2) Add the transaction_log to the statement array
-3) Print the statement array in the format shown in the **Acceptance Criteria** above.
+The above commands result in the output shown in the screenshot below:
