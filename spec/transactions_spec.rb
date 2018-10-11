@@ -1,5 +1,5 @@
 require 'transactions'
-require 'spec_method_helper'
+require 'method_helper_spec'
 
 describe Transactions do
   let(:transaction) { Transactions.new }
