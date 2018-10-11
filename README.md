@@ -47,3 +47,5 @@ To use the application, open a Ruby REPL from the project root and type the foll
 - transaction.display_statement *prints a bank statement, as per the format shown in the Acceptance Criteria section*
 
 The above commands result in the output shown in the screenshot below:
+
+![REPL screenshot](https://github.com/SecretSurfSpot/bank_tech_test/blob/master/images/Screen%20Shot%202018-10-11%20at%2012.52.24.png)
