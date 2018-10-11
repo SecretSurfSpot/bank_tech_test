@@ -30,21 +30,21 @@ https://github.com/SecretSurfSpot/bank_tech_test
 ### Installation
 - Perquisites: Ruby 2.5.1 installed on your machine
 - Clone the repo to your local machine
-- Run 'bundle install'
+- Run `bundle install`
 
 ### Testing
 To test the application:
 - Open Terminal (or a similar command line interface)
-- Run 'rspec' from the project root
+- Run `rspec` from the project root
 
 ### Use
 To use the application, open a Ruby REPL from the project root and type the following commands:
-- require './lib/transactions'
-- transaction = Transactions.new *creates a new Transaction object*
-- transaction.make_deposit("08/10/2018", 1000) *deposits £1000, dated 08/10/2018*
-- transaction.make_deposit("10/10/2018", 2000) *deposits £2000, dated 20/10/2018*
-- transaction.make_withdrawal("11/10/2018", 1000) *withdraws £1000, dated 11/10/2018*
-- transaction.display_statement *prints a bank statement, as per the format shown in the Acceptance Criteria section*
+- `require './lib/transactions'`
+- `transaction = Transactions.new` *creates a new Transaction object*
+- `transaction.make_deposit("08/10/2018", 1000)` *deposits £1000, dated 08/10/2018*
+- `transaction.make_deposit("10/10/2018", 2000)` *deposits £2000, dated 20/10/2018*
+- `transaction.make_withdrawal("11/10/2018", 1000)` *withdraws £1000, dated 11/10/2018*
+- `transaction.display_statement` *prints a bank statement, as per the format shown in the Acceptance Criteria section*
 
 The above commands result in the output shown in the screenshot below:
 
