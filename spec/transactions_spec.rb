@@ -34,7 +34,7 @@ describe Transactions do
     end
 
     it 'should raise an error if withdrawal isn\'t a positive number' do
-      expect { transaction.make_withdrawal(date, -1000) }.to raise_error 'Error: number positive'
+      expect { transaction.make_withdrawal(date, -1000) }.to raise_error 'Error: number must be positive'
     end
 
     it 'should raise an error if withdrawal isn\'t an integer' do
