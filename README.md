@@ -1,6 +1,6 @@
 # Bank Tech Test
 
-Makers week 10 individual tech test - Banking Application, created with Ruby and RSpec, using TDD and OO.
+Makers week 10 individual tech test - Banking Application, created with Ruby and RSpec, using BDD, TDD and OOP principles.
 
 ## Requirements
 
